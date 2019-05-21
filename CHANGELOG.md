@@ -1,5 +1,11 @@
 ### CHANGELOG
 
+#### 0.3.2
+- Changed close button from icon to html X.
+
+#### 0.3.1
+- Removed padding from trigger and close buttons.
+
 #### 0.3.0
 - Added support for close button.
 

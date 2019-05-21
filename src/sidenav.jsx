@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import IconClosePanel from './icon-close-panel.svg';
 import './sidenav.scss';
 
 const Sidenav = ({
@@ -8,6 +7,7 @@ const Sidenav = ({
   backgroundColor,
   children,
   className,
+  closeButtonColor,
   closeButtonIcon,
   fixed,
   hasCloseButton,
@@ -89,18 +89,44 @@ const Sidenav = ({
   }
 
   const renderCloseButton = () => {
-    if (!hasCloseButton) {
-      return null;
+    let CloseButtonElement = null;
+    const closeButtonProps = {
+      className: 'react-sidenav__close-button',
+      onClick: () => onStateChange({ isOpen: false, closeButton: true }),
+      style: {},
+    };
+
+    if (hasCloseButton) {
+      if (closeButtonIcon) {
+        CloseButtonElement = <img alt='close' src={closeButtonIcon} />;
+      } else {
+        const crossProps = {
+          className: 'react-sidenav__cross',
+          style: {
+            backgroundColor: closeButtonColor,
+          },
+        };
+
+        closeButtonProps.style.paddingRight = '2px';
+
+        CloseButtonElement = (
+          <Fragment>
+            <span {...crossProps} />
+            <span {...crossProps} />
+          </Fragment>
+        );
+      }
     }
 
-    return (
-      <button
-        className='react-sidenav__close-button'
-        onClick={() => onStateChange({ isOpen: false, closeButton: true })}
-      >
-        <img alt='close' src={closeButtonIcon || IconClosePanel} />
-      </button>
-    );
+    if (CloseButtonElement) {
+      return (
+        <button {...closeButtonProps}>
+          {CloseButtonElement}
+        </button>
+      );
+    }
+
+    return null;
   };
 
   const renderTrigger = () => {
@@ -153,6 +179,7 @@ Sidenav.propTypes = {
   animateWidth: PropTypes.bool,
   backgroundColor: PropTypes.string,
   className: PropTypes.string,
+  closeButtonColor: PropTypes.string,
   closeButtonIcon: PropTypes.element,
   fixed: PropTypes.bool,
   hasCloseButton: PropTypes.bool,
@@ -170,6 +197,7 @@ Sidenav.defaultProps = {
   animateWidth: false,
   backgroundColor: '#FFFFFF',
   className: '',
+  closeButtonColor: '#FFFFFF',
   closeButtonIcon: null,
   fixed: false,
   hasCloseButton: false,

@@ -1,6 +1,6 @@
 {
   "name": "@codeparticle/react-sidenav",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "A generic sidenav component for React",
   "main": "index.js",
   "scripts": {
