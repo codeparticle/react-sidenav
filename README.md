@@ -1,87 +1,53 @@
-<h1>React List</h1>
+<h1>React Sidenav</h1>
 
-This is a generic list component that accepts a list of items and renders them.
+This is a generic sidenav component.
 
-It can accept a custom renderer to replace the default rendered list item component, or just send in styles to style the component to your liking.
+It accepts a variety of props and is fully customizable.
 
 <h1>Install</h1>
-<code>npm install --save @codeparticle/react-list</code>
+<code>npm install --save @codeparticle/react-sidenav</code>
 
 <h1>Usage</h1>
 
-Basic Example
 ```javascript
-import React from 'react';
-import List from '@codeparticle/react-list';
+import React, { Fragment } from 'react';
+import Sidenav from '@codeparticle/react-sidenav';
 
-const ToDoList = () => {
-  const todos = [{
-    item: 'Take dog for walk',
-    onClick: () => {alert('walking now')}
-  }, {
-    item: 'Buy groceries',
-  }]
-
-  return <List listItems={todos} style={{background: 'green'}} />
-}
-
-export default ToDoList;
-```
-
-Using itemRenderer for a custom item component
-
-```javascript
-import React from 'react';
-import List from '@codeparticle/react-list';
-
-const CustomItem = ({
-  name,
-  phoneNumber
-}) => {
+const App = () => {
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>{phoneNumber}</p>
-    </div>
+    <Fragment>
+      <Sidenav
+        backgroundColor='red'
+        fixed={true}
+        isOpen={true}
+      >
+        Sidenav content
+      </Sidenav>
+      <p>
+        Basic usage
+      </p>
+    </Fragment>
   );
 };
 
-const ContactList = () => {
-  const contacts = [{
-    name: 'Batman',
-    phoneNumber: '555-5555'
-  }, {
-    name: 'Superman',
-    phoneNumber: '666-6666'
-  }];
-
-  return <List listItems={contacts} itemRenderer={CustomItem} />
-};
-
-export default ContactList;
-
+export default App;
 ```
 
 <h1>Props</h1>
-<h2>List</h2>
+<h2>Sidenav</h2>
 
 Prop | type | default | description
 ---- | ---- | ------- | -----------
-|listItems|array|none|The list of items|
-|containerStyles|object|none|Inline styles for the container|
-|className|string|none|Class name for the container. If it exists it will disable the inline styles|
-|itemRenderer|React Element|none|Custom renderer to for the list items|
-|Tag|string|ul|tag for container ie ul, ol, dt|
-|title|string|none|optional header
-
-<h2>ListItem (passed through listItems)</h2>
-
-|Prop|type|default|description|
-|----|----|-------|-----------|
-|item|array|none|The content of the list item|
-|className|string|none|Class name for the container. If it exists it will disable the inline styles|
-|onClick|function|none|onClick for the list item. It is passed the event and will change the cursor to 'pointer' if it exists.|
-|itemStyles|object|none|inline styles for the list item
+|animateWidth|bool|false|If true, animates the width of the sidenav instead of the left attribute|
+|backgroundColor|string|#FFFFFF|Background color of the sidenav container|
+|className|string|none|Class name for the container|
+|fixed|boolean|false|If true, the sidenav will be fixed positioned instead of relative|
+|isOpen|boolean|false|Toggle this property to open/close sidenav|
+|onClickOutside|func|none|Callback function for when user clicks on the outside of the sidenav|
+|right|boolean|false|If true, the sidenav will appear on the right side of the screen instead of left
+|transitionSpeed|string|0.3s|Speed for the css transition when closing/opening|
+|width|string|300px|Width of the sidenamv|
+|zIndex|number|10|zIndex of the sidenav
 
 <h1>License</h1>
 Copyright 2019 Code Particle Inc.

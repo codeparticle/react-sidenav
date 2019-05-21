@@ -1,0 +1,97 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-weight: lighter;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+}
+
+input {
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: lighter;
+}
+
+div {
+  box-sizing: border-box;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.sidenav-content p {
+  margin: 0;
+}
+
+.sidenav-content button {
+  font-size: 24px;
+}
+
+.sidenav-demo {
+  background-color: #060b1e;
+  color: #ffffff;
+  display: flex;
+  font-size: 24px;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.sidenav-demo button {
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.sidenav-demo__content {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  width: 100%;
+}
+
+.sidenav-demo__content h1 {
+  font-size: 26px;
+  margin: 0;
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+
+.sidenav-demo__content .sidenav-left-controls,
+.sidenav-demo__content .sidenav-middle-controls,
+.sidenav-demo__content .sidenav-right-controls {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

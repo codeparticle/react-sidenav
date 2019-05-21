@@ -1,0 +1,21 @@
+.react-sidenav {
+  height: 100%;
+  transition: all var(--transitionSpeed);
+  width: 100%;
+
+  &-container {
+    display: inline-block;
+    flex-shrink: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    transition: all var(--transitionSpeed);
+
+    @supports (-webkit-appearance: none) {
+      &.os-android {
+        height: calc(100vh - 56px);
+      }
+    }
+  }
+}

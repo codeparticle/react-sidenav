@@ -1,0 +1,45 @@
+const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const paths = require('./paths');
+require('./env');
+
+module.exports = {
+  resolve: {
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', '.scss', '.css', '.otf', '.json'],
+    modules: [paths.appNodeModules, 'node_modules'].concat(
+      // It is guaranteed to exist because we tweak it in `env.js`
+      process.env.NODE_PATH.split(paths.delimiter).filter(Boolean)
+    ),
+    plugins: [
+      // Prevents users from importing files from outside of src/ (or node_modules/).
+      // This often causes confusion because we only process files within src/ with babel.
+      // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
+      // please link the files into your node_modules/ and let module-resolution kick in.
+      // Make sure your source files are compiled, as they will not be processed in any way.
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+    ],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+        exclude: /node_modules|package.json/,
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|otf|woff|woff2|webm|mp4)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '/',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  node: {
+    fs: 'empty',
+  },
+};

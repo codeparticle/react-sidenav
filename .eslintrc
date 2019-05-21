@@ -1,10 +1,104 @@
 {
-  "extends": "airbnb",
-  "plugins": ["jest"],
-  "env": {
-    "jest/globals": true
+  "extends": "eslint-config-airbnb",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
   },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "globals": {
+    "mountWithIntl": true,
+    "mountWithStore": true
+  },
+  "plugins": [
+    "jest",
+    "react-hooks"
+  ],
+  "parser": "babel-eslint",
   "rules": {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    "arrow-parens": 0,
+    "arrow-body-style": 0,
+    "brace-style": [2, "1tbs", {
+      "allowSingleLine": true
+    }],
+    "class-methods-use-this": 0,
+    "comma-dangle": ["error", "always-multiline"],
+    "comma-spacing":["error", {
+      "before": false,
+      "after": true
+    }],
+    "curly": 2,
+    "dot-notation": "off",
+    "function-paren-newline": 0,
+    "global-require": 0,
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": 0,
+    "jsx-quotes": 0,
+    "jsx-a11y/media-has-caption": 0,
+    "object-curly-spacing": ["error", "always"],
+    "max-len": 0,
+    "no-alert": 0,
+    "no-param-reassign": 0,
+    "no-unused-vars": 2,
+    "no-console": 0,
+    "no-continue": 0,
+    "no-lonely-if": 0,
+    "no-plusplus": 0,
+    "no-trailing-spaces": "error",
+    "object-curly-newline": 0,
+    "padded-blocks": 0,
+    "prefer-const": ["error"],
+    "quote-props": 0,
+    "react/button-has-type": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0,
+    "react/jsx-uses-vars": 2,
+    "react/destructuring-assignment": [0, "always", {
+      "ignoreClassFields": true
+    }],
+    "react/forbid-prop-types": 1,
+    "react/jsx-wrap-multilines": ["error", {
+      "default": "parens-new-line",
+      "arrow": "parens"
+    }],
+    "react/jsx-one-expression-per-line": 0,
+    "space-before-blocks": "error",
+    "spaced-comment": "off",
+    "semi": ["error", "always"],
+    "valid-jsdoc": ["error", {
+      "prefer": {
+        "arg": "param",
+        "argument": "param",
+        "class": "constructor",
+        "return": "returns",
+        "virtual": "abstract"
+      },
+      "preferType": {
+        "Boolean": "boolean",
+        "Number": "number",
+        "object": "Object",
+        "String": "string"
+      }
+    }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src/"
+        ]
+      }
+    }
   }
 }

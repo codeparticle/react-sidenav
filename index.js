@@ -1,3 +1,3 @@
-import List from './src/list';
+import Sidenav from './src/sidenav';
 
-export default List;
+export default Sidenav;
