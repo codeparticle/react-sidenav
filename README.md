@@ -45,6 +45,7 @@ Prop | type | default | description
 |animateWidth|bool|false|If true, animates the width of the sidenav instead of the left attribute|
 |backgroundColor|string|#FFFFFF|Background color of the sidenav container|
 |className|string|none|Class name for the container|
+|closeButtonColor|string|#FFFFFF|Color of the default close button icon|
 |closeButtonIcon|React Element|none|Defines the icon to use for the close button|
 |fixed|boolean|false|If true, the sidenav will be fixed positioned instead of relative|
 |hasCloseButton|boolean|false|If true, the side panel will have a close button|
