@@ -7,6 +7,10 @@ It accepts a variety of props and is fully customizable.
 <h1>Install</h1>
 <code>npm install --save @codeparticle/react-sidenav</code>
 
+<h1>Run Demo</h1>
+Clone this project and run:
+<code>npm run demo</code>
+
 <h1>Usage</h1>
 
 ```javascript
