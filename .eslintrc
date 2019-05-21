@@ -68,6 +68,7 @@
       "ignoreClassFields": true
     }],
     "react/forbid-prop-types": 1,
+    "react/jsx-no-bind": 0,
     "react/jsx-wrap-multilines": ["error", {
       "default": "parens-new-line",
       "arrow": "parens"

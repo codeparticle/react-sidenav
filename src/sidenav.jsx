@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './sidenav.scss';
 
@@ -9,9 +9,11 @@ const Sidenav = ({
   className,
   fixed,
   isOpen,
-  onClickOutside,
+  onStateChange,
   right,
   transitionSpeed,
+  trigger,
+  triggerIcon,
   width,
   zIndex,
 }) => {
@@ -26,6 +28,10 @@ const Sidenav = ({
 
   useEffect(() => {
     const onWindowClick = (event) => {
+      if (!isOpen) {
+        return;
+      }
+
       let { target } = event;
 
       while (target !== null) {
@@ -36,19 +42,19 @@ const Sidenav = ({
         target = target.parentElement;
       }
 
-      onClickOutside(isOpen);
+      onStateChange({ isOpen: false, outsideClick: true });
     };
 
-    if (onClickOutside) {
+    if (onStateChange) {
       window.addEventListener('click', onWindowClick);
     }
 
     return () => {
-      if (onClickOutside) {
+      if (onStateChange) {
         window.removeEventListener('click', onWindowClick);
       }
     };
-  }, [isOpen, onClickOutside]);
+  }, [isOpen, onStateChange]);
 
   const containerStyle = {
     '--transitionSpeed': transitionSpeed,
@@ -79,19 +85,48 @@ const Sidenav = ({
     containerStyle.right = 0;
   }
 
+  const renderTrigger = () => {
+    const onTriggerButtonClick = () => onStateChange && onStateChange({ isOpen: !isOpen });
+    let TriggerElement = trigger;
+
+    if (!TriggerElement && triggerIcon) {
+      TriggerElement = (
+        <button
+          className='react-sidenav-trigger-button'
+          onClick={onTriggerButtonClick}
+        >
+          {triggerIcon}
+        </button>
+      );
+    }
+
+    if (TriggerElement) {
+      return (
+        <div className='react-sidenav-trigger'>
+          {TriggerElement}
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   return (
-    <div
-      className={`react-sidenav-container ${className} open-${isOpen}`}
-      ref={sidenavContainerRef}
-      style={containerStyle}
-    >
+    <Fragment>
+      {renderTrigger()}
       <div
-        className='react-sidenav'
-        style={sidenavStyle}
+        className={`react-sidenav-container ${className} open-${isOpen}`}
+        ref={sidenavContainerRef}
+        style={containerStyle}
       >
-        {children}
+        <div
+          className='react-sidenav'
+          style={sidenavStyle}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
@@ -101,9 +136,11 @@ Sidenav.propTypes = {
   className: PropTypes.string,
   fixed: PropTypes.bool,
   isOpen: PropTypes.bool,
-  onClickOutside: PropTypes.func,
+  onStateChange: PropTypes.func,
   right: PropTypes.bool,
   transitionSpeed: PropTypes.string,
+  trigger: PropTypes.element,
+  triggerIcon: PropTypes.element,
   width: PropTypes.string,
   zIndex: PropTypes.number,
 };
@@ -114,9 +151,11 @@ Sidenav.defaultProps = {
   className: '',
   fixed: false,
   isOpen: false,
-  onClickOutside: null,
+  onStateChange: null,
   right: false,
   transitionSpeed: '0.3s',
+  trigger: null,
+  triggerIcon: null,
   width: '300px',
   zIndex: 10,
 };

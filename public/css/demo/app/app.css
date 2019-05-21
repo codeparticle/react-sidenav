@@ -95,3 +95,7 @@ a:hover {
   display: flex;
   flex-direction: column;
 }
+
+.sidenav-demo__content .sidenav-right-controls {
+  align-items: flex-end;
+}

@@ -1,5 +1,8 @@
 ### CHANGELOG
 
+#### 0.2.3
+- Removed `onClickOutside` and added `onStateChange`, `trigger`, and `triggerIcon`.
+
 #### 0.2.2
 - Updated readme.
 

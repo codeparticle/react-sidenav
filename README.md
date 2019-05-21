@@ -47,9 +47,11 @@ Prop | type | default | description
 |className|string|none|Class name for the container|
 |fixed|boolean|false|If true, the sidenav will be fixed positioned instead of relative|
 |isOpen|boolean|false|Toggle this property to open/close sidenav|
-|onClickOutside|func|none|Callback function for when user clicks on the outside of the sidenav|
+|onStateChange|func|none|Callback function for when user clicks on the outside of the sidenav or clicks on the trigger|
 |right|boolean|false|If true, the sidenav will appear on the right side of the screen instead of left
 |transitionSpeed|string|0.3s|Speed for the css transition when closing/opening|
+|trigger|React Element|none|Trigger element for the sidenav. This takes precedence over triggerIcon|
+|triggerIcon|React Element|none|If this property is set, there will be a trigger button with this element inside of it|
 |width|string|300px|Width of the sidenamv|
 |zIndex|number|10|zIndex of the sidenav
 

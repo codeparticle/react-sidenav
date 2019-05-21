@@ -19,3 +19,9 @@
     height: calc(100vh - 56px);
   }
 }
+
+.react-sidenav-trigger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
