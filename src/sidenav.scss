@@ -19,9 +19,23 @@
     }
   }
 
+  &-trigger {
+    display: inline-block;
+  }
+
   &-trigger-button {
     background: none;
     border: none;
     cursor: pointer;
+  }
+
+  &__close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 1;
   }
 }

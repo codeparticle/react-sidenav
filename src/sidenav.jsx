@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import IconClosePanel from './icon-close-panel.svg';
 import './sidenav.scss';
 
 const Sidenav = ({
@@ -7,7 +8,9 @@ const Sidenav = ({
   backgroundColor,
   children,
   className,
+  closeButtonIcon,
   fixed,
+  hasCloseButton,
   isOpen,
   onStateChange,
   right,
@@ -85,6 +88,21 @@ const Sidenav = ({
     containerStyle.right = 0;
   }
 
+  const renderCloseButton = () => {
+    if (!hasCloseButton) {
+      return null;
+    }
+
+    return (
+      <button
+        className='react-sidenav__close-button'
+        onClick={() => onStateChange({ isOpen: false, closeButton: true })}
+      >
+        <img alt='close' src={closeButtonIcon || IconClosePanel} />
+      </button>
+    );
+  };
+
   const renderTrigger = () => {
     const onTriggerButtonClick = () => onStateChange && onStateChange({ isOpen: !isOpen });
     let TriggerElement = trigger;
@@ -123,6 +141,7 @@ const Sidenav = ({
           className='react-sidenav'
           style={sidenavStyle}
         >
+          {renderCloseButton()}
           {children}
         </div>
       </div>
@@ -134,7 +153,9 @@ Sidenav.propTypes = {
   animateWidth: PropTypes.bool,
   backgroundColor: PropTypes.string,
   className: PropTypes.string,
+  closeButtonIcon: PropTypes.element,
   fixed: PropTypes.bool,
+  hasCloseButton: PropTypes.bool,
   isOpen: PropTypes.bool,
   onStateChange: PropTypes.func,
   right: PropTypes.bool,
@@ -149,7 +170,9 @@ Sidenav.defaultProps = {
   animateWidth: false,
   backgroundColor: '#FFFFFF',
   className: '',
+  closeButtonIcon: null,
   fixed: false,
+  hasCloseButton: false,
   isOpen: false,
   onStateChange: null,
   right: false,

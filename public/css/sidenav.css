@@ -20,8 +20,22 @@
   }
 }
 
+.react-sidenav-trigger {
+  display: inline-block;
+}
+
 .react-sidenav-trigger-button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.react-sidenav__close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1;
 }

@@ -19,7 +19,7 @@ const postCSSLoader = {
     sourceMap: true,
     plugins: () => [
       autoprefixer({
-        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9']
+        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
       }),
     ],
   },
@@ -41,7 +41,7 @@ const publishConfig = {
       {
         test: /\.scss$/,
         exclude: /\.module\.scss$/,
-        use: ['style-loader', CSSLoader, postCSSLoader, 'sass-loader']
+        use: ['style-loader', CSSLoader, postCSSLoader, 'sass-loader'],
       },
       {
         test: /\.(js|jsx)$/,

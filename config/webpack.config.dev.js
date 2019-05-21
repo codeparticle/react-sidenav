@@ -122,6 +122,17 @@ const devConfig = {
           'babel-loader',
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif|otf|woff|woff2|webm|mp4)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '/',
+            },
+          },
+        ],
+      },
       // ** STOP ** Are you adding a new loader?
       // Make sure to add the new loader(s) before the "file" loader.
     ],

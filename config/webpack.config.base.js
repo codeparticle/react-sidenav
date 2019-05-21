@@ -1,11 +1,10 @@
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const paths = require('./paths');
 require('./env');
 
 module.exports = {
   resolve: {
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', '.scss', '.css', '.otf', '.json'],
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', '.scss', '.css', '.otf', '.json', '.svg'],
     modules: [paths.appNodeModules, 'node_modules'].concat(
       // It is guaranteed to exist because we tweak it in `env.js`
       process.env.NODE_PATH.split(paths.delimiter).filter(Boolean)
@@ -27,15 +26,13 @@ module.exports = {
         exclude: /node_modules|package.json/,
       },
       {
-        test: /\.(jpe?g|png|gif|svg|otf|woff|woff2|webm|mp4)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              publicPath: '/',
-            },
+        test: /\.svg/,
+        use: {
+          loader: 'svg-url-loader',
+          options: {
+            encoding: 'base64',
           },
-        ],
+        },
       },
     ],
   },
