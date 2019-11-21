@@ -7,6 +7,7 @@ const Sidenav = ({
   backgroundColor,
   children,
   className,
+  classNamesToIgnoreOutsideClick,
   closeButtonColor,
   closeButtonIcon,
   fixed,
@@ -42,6 +43,14 @@ const Sidenav = ({
           return;
         }
 
+        if (classNamesToIgnoreOutsideClick) {
+          for (let i = 0; i < classNamesToIgnoreOutsideClick.length; i++) {
+            if (target.classList.contains(classNamesToIgnoreOutsideClick[i])) {
+              return;
+            }
+          }
+        }
+
         target = target.parentElement;
       }
 
@@ -49,15 +58,15 @@ const Sidenav = ({
     };
 
     if (onStateChange) {
-      window.addEventListener('click', onWindowClick);
+      window.addEventListener('click', onWindowClick, true);
     }
 
     return () => {
       if (onStateChange) {
-        window.removeEventListener('click', onWindowClick);
+        window.removeEventListener('click', onWindowClick, true);
       }
     };
-  }, [isOpen, onStateChange]);
+  }, [classNamesToIgnoreOutsideClick, isOpen, onStateChange]);
 
   const containerStyle = {
     '--transitionSpeed': transitionSpeed,
@@ -179,6 +188,7 @@ Sidenav.propTypes = {
   animateWidth: PropTypes.bool,
   backgroundColor: PropTypes.string,
   className: PropTypes.string,
+  classNamesToIgnoreOutsideClick: PropTypes.arrayOf(PropTypes.string),
   closeButtonColor: PropTypes.string,
   closeButtonIcon: PropTypes.element,
   fixed: PropTypes.bool,
@@ -197,6 +207,7 @@ Sidenav.defaultProps = {
   animateWidth: false,
   backgroundColor: '#FFFFFF',
   className: '',
+  classNamesToIgnoreOutsideClick: [],
   closeButtonColor: '#FFFFFF',
   closeButtonIcon: null,
   fixed: false,
