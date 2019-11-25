@@ -153,7 +153,7 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.23.0",
     "svg-url-loader": "^2.3.2",
-    "webpack-dev-server": "2.11.5",
+    "webpack-dev-server": "3.1.11",
     "webpack-merge": "4.1.4",
     "webpack-node-externals": "^1.7.2"
   },
