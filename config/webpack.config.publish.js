@@ -15,13 +15,15 @@ const CSSLoader = {
 const postCSSLoader = {
   loader: 'postcss-loader',
   options: {
-    ident: 'postcss',
-    sourceMap: true,
-    plugins: () => [
-      autoprefixer({
-        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
-      }),
-    ],
+    postcssOptions: {
+      ident: 'postcss',
+      sourceMap: true,
+      plugins: () => [
+        autoprefixer({
+          browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
+        }),
+      ],
+    }
   },
 };
 

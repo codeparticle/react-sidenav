@@ -1,18 +1,15 @@
 {
-  "presets": ["es2015", "react", "stage-2"],
+  "presets": ["@babel/preset-env","@babel/react"],
   "env": {
     "development": {
-      "plugins": ["transform-react-jsx-source"]
+      "plugins": ["@babel/transform-react-jsx-source"]
     }
   },
   "plugins": [
-    "transform-async-to-generator",
-    "transform-inline-environment-variables",
-    ["transform-runtime", {
+    "@babel/transform-async-to-generator",
+    ["@babel/transform-runtime", {
       "helpers": false,
-      "polyfill": false,
-      "regenerator": true,
-      "moduleName": "babel-runtime"
+      "regenerator": true
     }],
     [
       "module-resolver",

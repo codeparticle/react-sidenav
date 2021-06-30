@@ -90,11 +90,13 @@ const devConfig = {
             loader: 'postcss-loader',
             options: {
               parser: 'postcss-scss',
-              plugins: [
-                require('autoprefixer')(),
-                require('postcss-preset-env')(),
-                require('cssnano')(),
-              ],
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')(),
+                  require('postcss-preset-env')(),
+                  require('cssnano')(),
+                ],
+              }
             },
           },
           {
