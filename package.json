@@ -53,7 +53,7 @@
     "express": "^5.0.0-alpha.8",
     "file-loader": "6.2.0",
     "fs-extra": "10.0.0",
-    "history": "^4.7.2",
+    "history": "^5.0.0",
     "html-webpack-plugin": "4.5.2",
     "intl": "^1.2.5",
     "isomorphic-fetch": "^3.0.0",
