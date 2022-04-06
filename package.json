@@ -48,6 +48,7 @@
     "dotenv": "10.0.0",
     "dotenv-expand": "5.1.0",
     "enzyme": "^3.11.0",
+    "enzyme-to-json": "^3.6.2",
     "eslint-config-react-app": "^6.0.0",
     "eslint-loader": "4.0.2",
     "express": "^5.0.0-alpha.8",
@@ -57,6 +58,7 @@
     "html-webpack-plugin": "4.5.2",
     "intl": "^1.2.5",
     "isomorphic-fetch": "^3.0.0",
+    "jsdom-global": "^3.0.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "node-sass-chokidar": "^1.5.0",
@@ -116,6 +118,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-redux-saga": "^1.2.1",
     "husky": "^7.0.4",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
     "mini-css-extract-plugin": "^1.6.2",
     "node-sass": "^6.0.1",
@@ -144,6 +147,12 @@
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>setup/enzyme.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   }
 }
