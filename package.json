@@ -37,7 +37,7 @@
     "react": "^17.0.2"
   },
   "dependencies": {
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.7.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
     "autoprefixer": "^10.4.2",
     "case-sensitive-paths-webpack-plugin": "2.4.0",
     "chalk": "5.1.2",
