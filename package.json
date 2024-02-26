@@ -127,7 +127,7 @@
     "postcss": "^8.3.5",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "^4.3.0",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^9.4.0",
     "postcss-scss": "^4.0.0",
     "redux-test-utils": "^1.0.2",
     "sass-loader": "^10.2.0",
