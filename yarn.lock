@@ -1442,10 +1442,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@redux-saga/core@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.4.2.tgz#7d64721b490c2ed88eb8b07a45074a428d5076d6"
-  integrity sha512-nIMLGKo6jV6Wc1sqtVQs1iqbB3Kq20udB/u9XEaZQisT6YZ0NRB8+4L6WqD/E+YziYutd27NJbG8EWUPkb7c6Q==
+"@redux-saga/core@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.4.3.tgz#7d6cca04f944d930de9526ed01bf8cae646986a7"
+  integrity sha512-8Fg624PiiPBNLLtsn/21Q3hjyWD2v8CIk/a3n5Lueygo9bu67F0XyMgXH0VOs72caATs/FW74bb94ebkIm09nA==
   dependencies:
     "@babel/runtime" "^7.28.4"
     "@redux-saga/deferred" "^1.3.1"
@@ -12336,11 +12336,12 @@ redux-persist@^6.0.0:
   integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
 
 redux-saga@^1.1.3:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.4.2.tgz#98947e62a19712150dc63dd1418a5b070bfadd5a"
-  integrity sha512-QLIn/q+7MX/B+MkGJ/K6R3//60eJ4QNy65eqPsJrfGezbxdh1Jx+37VRKE2K4PsJnNET5JufJtgWdT30WBa+6w==
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.4.3.tgz#5d4ef2cadbd46a526fbc47c385144cd49dcc8857"
+  integrity sha512-l2XfhI/BphvE+egITxJFei0K6FoW5yOnMwkTaH+oGi+7I+nEXVu5KWRdHYShhND1kE3yotMPPFFPwfsSwhSajQ==
   dependencies:
-    "@redux-saga/core" "^1.4.2"
+    "@babel/runtime" "^7.28.4"
+    "@redux-saga/core" "^1.4.3"
 
 redux-test-utils@^1.0.2:
   version "1.0.2"
